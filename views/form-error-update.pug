@@ -3,6 +3,10 @@ extends layout.pug
 block content
     h1 Update Book
     form(action="/books/" + book.id, method="post")
+        h2.error Oooops!
+            ul.error
+                each error in errors
+                    li #{error}
         p
             label(for="title") Title
             input(name="title" type="text" id="title" value=book.title)
@@ -11,7 +15,7 @@ block content
             input(name="author" type="text" id="author" value=book.author)
         p
             label(for="genre") Genre
-            input(name="genre" type= "text" id="genre" value=book.genre)
+            input(name="genre" type="text" id="genre" value=book.genre)
         p
             label(for="year") Year
             input(name="year" type="text" id="year" value=book.year)

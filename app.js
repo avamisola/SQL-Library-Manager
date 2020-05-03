@@ -18,7 +18,7 @@ app.set('view engine', 'pug');
 //use static route to access files in public folder
 app.use("/static", express.static("public"));
 
-
+//set up root and books routes
 const routes = require('./routes/index');
 const books = require('./routes/books');
 app.use('/', routes);
@@ -26,12 +26,13 @@ app.use('/books', books);
 
 //error handling 404
 app.use(function (req, res, next) {
-    res.status(404).send("Error 404 Page not found, go back to home page.");
+    res.render("page-not-found");
 });
-//error handling other
+
+//global error handler
 app.use(function (err, req, res, next) {
     console.error(err.stack)
-    res.status(500).send('Error 500 Something went wrong, go back to home page.')
+    res.render("error");
 });
 
 //log port number to console

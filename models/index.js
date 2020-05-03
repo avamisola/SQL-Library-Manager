@@ -31,15 +31,15 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
-(async () => {
-  // sync "Library" database
-  try {
-    await sequelize.authenticate();
-    console.log('Connection to the database successful')
-  } catch (error) {
-    console.error('Error connecting to the database: ', error);
-  }
-})();
+//check sql db connection
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

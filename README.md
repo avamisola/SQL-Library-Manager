@@ -1,5 +1,4 @@
-# treehouse_techdegree_project_8
-SQL Library Manager
+# SQL Library Manager
 
 This project mainly uses Sequelize and Express to read and display database data on a website.
 User can use the site to create, read, update, and delete (CRUD) the data in the database.
